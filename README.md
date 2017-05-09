@@ -5,7 +5,7 @@
 下载`example`文件夹，以`example`内的文件举例：  
 首先打开`cmd`，定位到`example`所在文件夹，需要监听变化的文件依次添加在`hotReplacement.py`之后，这里监听`index.html`文件，执行以下命令：  
 ```bash
-python hotReplacement.py index.html
+$ python hotReplacement.py index.html
 ```
 然后在浏览器打开`index.html`文件，修改文件内容，即可观察到页面自动刷新。  
 
@@ -25,5 +25,5 @@ python hotReplacement.py index.html
 
 2.若Python提示没有`websockets`模块，则需要下载：  
 ```bash
-pip install websockets
+$ pip install websockets
 ```
