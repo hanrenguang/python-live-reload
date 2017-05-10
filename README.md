@@ -3,6 +3,7 @@
 
 ## 使用方式
 下载`example`文件夹，以`example`内的文件举例：  
+
 首先打开`cmd`，定位到`example`所在文件夹，需要监听变化的文件依次添加在`liveReloadServer.py`之后，这里监听`index.html`文件，执行以下命令：  
 ```bash
 $ python liveReloadServer.py index.html
