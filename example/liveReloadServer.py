@@ -3,6 +3,7 @@
 
 import hashlib, time, sys, asyncio, websockets
 
+# maintain the file lists
 class FileQueue():
     def __init__(self):
         self.fileInfo = []
@@ -18,7 +19,7 @@ class FileQueue():
             self.fileInfo.append(fileInfo)
             return True
 
-
+# get the MD5 value of file
 def getFileMD5(file):
     md5 = hashlib.md5()
     f = open(file, 'rb')
@@ -30,7 +31,7 @@ def getFileMD5(file):
         md5.update(chunk)
     return md5.hexdigest()
 
-
+# check if the file changed
 def checkChange(fileName, newMD5, oldMD5):
     if newMD5 != oldMD5:
         print(fileName, 'was changed!')
@@ -38,7 +39,7 @@ def checkChange(fileName, newMD5, oldMD5):
     else:
         return False
 
-
+# send changed message
 async def reload(websocket, path):
     try:
         while  True:
@@ -57,6 +58,7 @@ async def reload(websocket, path):
 
 if __name__ == "__main__":
     queue = FileQueue()
+    # get file lists
     files = sys.argv[1:] if len(sys.argv) > 1 else False
 
     if not files:
@@ -66,7 +68,7 @@ if __name__ == "__main__":
         for f in files:
             md5V = getFileMD5(f)
             queue.addFile(f, md5V)
-
+    # run websocket server
     try:
         start_server = websockets.serve(reload, '127.0.0.1', 8080)
         asyncio.get_event_loop().run_until_complete(start_server)
