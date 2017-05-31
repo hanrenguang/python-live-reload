@@ -11,17 +11,9 @@ $ python liveReloadServer.py index.html
 然后在浏览器打开`index.html`文件，修改文件内容，即可观察到页面自动刷新。  
 
 ## 注意
-1.在需要刷新的页面中加入如下脚本：  
-```javascript
-<script>
-    var ws = new WebSocket("ws://127.0.0.1:8080/");
-    ws.onmessage = function(event) {
-        var data = event.data;
-        if(data === "reload") {
-            window.location.reload(true);
-        }
-    };
-</script>
+1.在需要刷新的页面中加入 `live-reload.js` 文件：  
+```html
+<script type="text/javascript" src="path/live-reload.js"></script>
 ```
 
 2.若Python提示没有`websockets`模块，则需要下载：  

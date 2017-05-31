@@ -6,14 +6,6 @@
 </head>
 <body>
     <h1>This is a test!</h1>
-    <script>
-        var ws = new WebSocket("ws://127.0.0.1:8080/");
-        ws.onmessage = function(event) {
-            var data = event.data;
-            if(data === "reload") {
-                window.location.reload(true);
-            }
-        };
-    </script>
+    <script type="text/javascript" src="live-reload.js"></script>
 </body>
 </html>

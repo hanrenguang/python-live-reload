@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import hashlib, time, sys, asyncio, websockets
+import hashlib, sys, asyncio, websockets
 
 # maintain the file lists
 class FileQueue():
